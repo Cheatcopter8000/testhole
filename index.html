@@ -1,1 +1,113 @@
+<!doctype html>
+<html>
 
+<head>
+<meta charset="utf-8">
+<title>New Title</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+$(document).ready(
+	function(){
+		var num1;
+		var num2;
+		var total;
+		
+		var showNumber = function(){
+			$("#display").html("<h1>"+total+"</h1>");
+			};
+			
+		var getNumber = function(){
+			num1 = parseInt($("#num1").val());
+			num2 = parseInt($("#num2").val());
+			};
+		
+		var add = function(){
+			 	getNumber();
+			 total = num1 + num2;
+		}
+		
+		var subtract = function(){
+				 getNumber();
+				 total = num1 - num2;
+		}
+		
+		var mult = function(){
+				 getNumber();
+				 total = num1 * num2;
+		}
+		
+		var divide = function(){
+				 getNumber();
+				 total = num1 / num2;
+		}
+		//this is add
+		$("#add").click(
+			function(){
+				add();
+				}
+			);
+			
+			//this is subtract
+		$("#sub").click(
+			function(){
+				subtract();
+				}
+			);
+			
+			//this is multiply
+		$("#mult").click(
+			function(){
+				mult();
+				}
+			);	
+			
+			//this is divide
+		$("#divide").click(
+			function(){
+				divide();
+				}
+			);	
+			
+		$("#equals").click(
+			function(){
+				showNumber();
+				}
+			);
+	}	
+);
+</script>
+
+<style>
+.operator {
+	width:25%;
+	background-color:#C8373A;
+	
+	}
+	
+#add{}
+
+#sub{}
+
+#mult{}
+
+#divide{}
+</style>
+
+<body>
+	<input id='num1' type='text' placeholder='the 1st num'/>
+    <div class='operator' id='add'>+</div>
+    <div class='operator' id='sub'>-</div>
+    <div class='operator' id='mult'>*</div>
+    <div class='operator' id='divide'>/</div>
+    <input id='num2' type='text' placeholder='the 2nd num'/>
+    <button id='equals'>=</button>
+	<div id="display">
+    </div>
+</body>
+
+
+
+
+</html>
