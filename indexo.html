@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+
+<script>
+$(document).ready(
+	function(){
+		$('#submit').click(
+			function(){
+				var text = $("#q").val();
+				if(text==""){
+					$("body").append("Nothing was written!");
+				}
+				if (text == "What's your name?"){
+					$("body").append("My name is Wutumbo. ");
+				}
+				if (text == "Tell me a secret"){
+					$("#img").html("<img src='hqdefault.jpg'>");
+				}
+				if ("#img" == ""){"<img src='hqdefault.jpg'>"
+					$("#img").html("");
+				}
+			}
+		);
+	}
+);
+</script>
+
+<body>
+	<input type='text' id='q' placeholder='Type a Question'/>
+	<button id='submit'>Submit</button>
+	<div id='img'></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+
+<script>
+$(document).ready(
+	function(){
+		var right = 0;
+		var level = 0;
+		var multiNum = 1;
+		$("#submit").click(
+			function(){
+				var num1 = parseInt($("#num1").text());
+				var num2 = parseInt($("#num2").text());
+				var answer = num1 + num2;
+				var myAnswer = parseInt($("#answer").val());
+				//console.log(answer, myAnswer);
+				if(myAnswer == answer){
+					$("#display").html("<img src='correct.png'>");
+					var newNum1 = Math.round(Math.random()*multiNum);
+					var newNum2 = Math.round(Math.random()*multiNum);
+					$("#num1").text(newNum1);
+					$("#num2").text(newNum2);
+					$("#answer").val("");
+					right++;
+
+					if(right >= 2){
+						//$("body").html("You've won the game!");
+						level++;
+						alert("LEVEL INCREASED");
+						right = 0;
+						if (level <= 3){
+							if(level == 1){
+								multiNum = 10;
+							} else if (level == 2){
+								multiNum = 100;
+							} else if (level == 3){
+								multiNum = 1000;
+							}
+						} else {
+							$("#display").html("<img src='wrong.png'>");
+						}	
+					}
+				}
+			}
+		);	
+	}
+);
+
+</script>
+
+<body>
+	<span id='num1'>0</span>+<span id='num2'>0</span>
+	<input type='text' id='answer'/>
+	<button id ='submit'>Submit!</button>
+	<button id ='start'>Start!</button>
+	<div id= "display"></div>
+</body>
+</html>
